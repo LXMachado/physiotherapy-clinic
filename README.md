@@ -2,6 +2,10 @@
 
 A modern, responsive marketing website for Elite Physio, a physiotherapy clinic serving the Gold Coast, Brisbane, and Sunshine Coast areas in Australia.
 
+## Screenshot
+
+<img src="docs/images/elite-physio-homepage.png" alt="Elite Physio homepage screenshot" width="320" />
+
 ## Features
 
 - **Responsive Design** - Mobile-first approach with seamless experience across all devices
