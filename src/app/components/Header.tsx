@@ -1,64 +1,108 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { Phone, Menu, X } from 'lucide-react';
+import { Menu, Phone, X } from 'lucide-react';
+import surfersLogo from '@/assets/surfers-logo.png';
+
+const phoneNumber = '1300 000 000';
+
+const navLinks = [
+  { label: 'Home', href: '/#top' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Conditions', href: '/#conditions' },
+  { label: 'About', href: '/#about' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Contact', href: '/#contact' },
+];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link to="/">
-              <h1 className="text-xl font-semibold text-neutral-900">Elite Physio</h1>
-            </Link>
-          </div>
+    <header className="sticky top-0 z-50 border-b border-[#d7e2ef] bg-white/95 backdrop-blur-md shadow-[0_8px_24px_rgba(10,35,66,0.08)]">
+      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+        <Link to="/#top" className="shrink-0" aria-label="Surfers Physio home">
+          <img
+            src={surfersLogo}
+            alt="Surfers Physio logo"
+            className="h-11 w-auto sm:h-12"
+            loading="eager"
+            decoding="async"
+          />
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link to="/services" className="text-neutral-600 hover:text-brand-teal transition-colors">Services</Link>
-            <a href="/#process" className="text-neutral-600 hover:text-brand-teal transition-colors">How It Works</a>
-            <a href="/#about" className="text-neutral-600 hover:text-brand-teal transition-colors">About</a>
-            <a href="/#faq" className="text-neutral-600 hover:text-brand-teal transition-colors">FAQ</a>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <a href="tel:1300000000" className="hidden sm:flex items-center gap-2 text-neutral-700 hover:text-brand-teal transition-colors">
-              <Phone size={18} />
-              <span className="text-sm font-medium">1300 000 000</span>
-            </a>
+        <nav className="hidden items-center gap-7 lg:flex">
+          {navLinks.map((link) => (
             <a
-              href="#book"
-              className="bg-brand-teal text-white px-6 py-2.5 rounded-lg hover:bg-brand-teal-dark transition-colors font-medium"
+              key={link.label}
+              href={link.href}
+              className="text-sm font-medium text-[#0A2342] transition-colors hover:text-[#0EA5C6]"
             >
-              Book Now
+              {link.label}
             </a>
-            <button
-              className="md:hidden text-neutral-700"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
+          ))}
+        </nav>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-neutral-200">
-            <div className="flex flex-col gap-3">
-              <Link to="/services" className="text-neutral-600 hover:text-brand-teal transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>Services</Link>
-              <a href="/#process" className="text-neutral-600 hover:text-brand-teal transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
-              <a href="/#about" className="text-neutral-600 hover:text-brand-teal transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>About</a>
-              <a href="/#faq" className="text-neutral-600 hover:text-brand-teal transition-colors py-2" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
-              <a href="tel:1300000000" className="flex items-center gap-2 text-brand-teal py-2">
-                <Phone size={18} />
-                <span>1300 000 000</span>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href={`tel:${phoneNumber.replace(/\s/g, '')}`}
+            className="hidden items-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold text-[#0A2342] transition-colors hover:text-[#0EA5C6] sm:flex"
+          >
+            <Phone size={16} />
+            <span>{phoneNumber}</span>
+          </a>
+
+          <a
+            href="/#book"
+            className="hidden rounded-lg bg-[#0A2342] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#12345f] sm:inline-flex"
+          >
+            Book Now
+          </a>
+
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-lg border border-[#d7e2ef] p-2 text-[#0A2342] lg:hidden"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
+      </div>
+
+      {mobileMenuOpen && (
+        <nav className="border-t border-[#d7e2ef] bg-white px-4 pb-5 pt-4 lg:hidden">
+          <div className="mx-auto flex w-full max-w-7xl flex-col gap-2">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="rounded-lg px-3 py-2 text-sm font-medium text-[#0A2342] transition-colors hover:bg-[#eef6fb]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <a
+                href={`tel:${phoneNumber.replace(/\s/g, '')}`}
+                className="inline-flex items-center justify-center rounded-lg border border-[#0EA5C6] px-4 py-3 text-sm font-semibold text-[#0EA5C6]"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Call Now
+              </a>
+              <a
+                href="/#book"
+                className="inline-flex items-center justify-center rounded-lg bg-[#0A2342] px-4 py-3 text-sm font-semibold text-white"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Book Now
               </a>
             </div>
-          </nav>
-        )}
-      </div>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

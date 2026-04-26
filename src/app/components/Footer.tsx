@@ -1,71 +1,77 @@
 import { Link } from 'react-router';
-import { Phone, MapPin, Mail } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
+
+const phoneNumber = '1300 000 000';
+const email = 'hello@surfersphysio.com.au';
+
+const serviceLinks = [
+  'Physiotherapy',
+  'Sports Injury Rehab',
+  'Back & Neck Pain',
+  'Dry Needling',
+  'Post-Surgery Rehab',
+  'Exercise Prescription',
+];
 
 export function Footer() {
   return (
-    <footer className="bg-neutral-900 text-neutral-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Company */}
+    <footer id="contact" className="bg-[#0A2342] text-[#d6e2ef]">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-10 pt-12 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-white font-semibold text-lg mb-4">Elite Physio</h3>
-            <p className="text-sm mb-4">
-              Expert physiotherapy care across Gold Coast, Brisbane, and Sunshine Coast.
+            <h2 className="text-xl font-bold text-white">Surfers Physio</h2>
+            <p className="mt-4 text-sm leading-relaxed">
+              Premium local physiotherapy for active people in Surfers Paradise and the Gold Coast.
             </p>
+            <p className="mt-4 text-sm text-[#9ec2e7]">Move Better. Feel Better. Live Better.</p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/services" className="hover:text-brand-teal-light transition-colors">Services</Link></li>
-              <li><a href="/#process" className="hover:text-brand-teal-light transition-colors">How It Works</a></li>
-              <li><a href="/#about" className="hover:text-brand-teal-light transition-colors">About</a></li>
-              <li><a href="/#faq" className="hover:text-brand-teal-light transition-colors">FAQ</a></li>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">Quick Links</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              <li><a href="/#top" className="transition-colors hover:text-white">Home</a></li>
+              <li><a href="/#services" className="transition-colors hover:text-white">Services</a></li>
+              <li><a href="/#conditions" className="transition-colors hover:text-white">Conditions</a></li>
+              <li><a href="/#about" className="transition-colors hover:text-white">About</a></li>
+              <li><a href="/#faq" className="transition-colors hover:text-white">FAQ</a></li>
+              <li><Link to="/services" className="transition-colors hover:text-white">All Services Page</Link></li>
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <Phone size={16} className="mt-0.5 flex-shrink-0" />
-                <a href="tel:1300000000" className="hover:text-brand-teal-light transition-colors">1300 000 000</a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail size={16} className="mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@elitephysio.com.au" className="hover:text-brand-teal-light transition-colors">info@elitephysio.com.au</a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 flex-shrink-0" />
-                <span>Gold Coast, Brisbane & Sunshine Coast</span>
-              </li>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">Services</h3>
+            <ul className="mt-4 space-y-2 text-sm">
+              {serviceLinks.map((service) => (
+                <li key={service}>{service}</li>
+              ))}
             </ul>
           </div>
 
-          {/* Hours */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Clinic Hours</h4>
-            <ul className="space-y-2 text-sm">
-              <li className="flex justify-between">
-                <span>Mon - Fri</span>
-                <span>7am - 7pm</span>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.08em] text-white">Contact</h3>
+            <ul className="mt-4 space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <MapPin size={16} className="mt-0.5 shrink-0" />
+                <span>Surfers Paradise, Gold Coast</span>
               </li>
-              <li className="flex justify-between">
-                <span>Saturday</span>
-                <span>8am - 2pm</span>
+              <li className="flex items-start gap-2">
+                <Phone size={16} className="mt-0.5 shrink-0" />
+                <a href={`tel:${phoneNumber.replace(/\s/g, '')}`} className="transition-colors hover:text-white">
+                  {phoneNumber}
+                </a>
               </li>
-              <li className="flex justify-between">
-                <span>Sunday</span>
-                <span>Closed</span>
+              <li className="flex items-start gap-2">
+                <Mail size={16} className="mt-0.5 shrink-0" />
+                <a href={`mailto:${email}`} className="transition-colors hover:text-white break-all">
+                  {email}
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-neutral-800 text-center text-sm">
-          <p>&copy; 2026 Elite Physio. All rights reserved.</p>
+        <div className="mt-10 border-t border-[#23476f] pt-6 text-center text-xs text-[#aac3dd]">
+          <p>© 2026 Surfers Physio. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@ export default {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.(png|jpe?g|gif|webp|svg|avif)$': '<rootDir>/src/test/fileMock.ts',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   transform: {

@@ -1,401 +1,409 @@
-import { Link } from 'react-router';
-import { MapPin, Star, Check } from 'lucide-react';
-import { ServiceCard } from '../components/ServiceCard';
-import { ProcessStep } from '../components/ProcessStep';
-import { TestimonialCard } from '../components/TestimonialCard';
-import { FAQItem } from '../components/FAQItem';
-import { WhoWeHelpCard } from '../components/WhoWeHelpCard';
+import {
+  Activity,
+  BadgeCheck,
+  Briefcase,
+  CheckCircle2,
+  Clock3,
+  Dumbbell,
+  Phone,
+  ShieldCheck,
+  Sparkles,
+  Stethoscope,
+  Waves,
+} from 'lucide-react';
+import heroImage from '@/assets/surfers-hero.webp';
+
+const phoneNumber = '1300 000 000';
+
+const whyChooseCards = [
+  {
+    title: 'Fast Pain Relief',
+    description:
+      'Hands-on treatment and clear diagnosis to help you understand what is causing your pain.',
+    icon: Sparkles,
+  },
+  {
+    title: 'Personalised Recovery Plan',
+    description:
+      'Practical rehab tailored to your body, lifestyle, sport, work, and goals.',
+    icon: Activity,
+  },
+  {
+    title: 'Stay Active Long-Term',
+    description:
+      'Prevention-focused care to reduce flare-ups and keep you moving confidently.',
+    icon: ShieldCheck,
+  },
+];
+
+const conditions = [
+  { name: 'Back Pain', icon: Stethoscope },
+  { name: 'Neck Pain', icon: Activity },
+  { name: 'Shoulder Pain', icon: Activity },
+  { name: 'Sports Injuries', icon: Dumbbell },
+  { name: 'Running Injuries', icon: Activity },
+  { name: 'Surf Injuries', icon: Waves },
+  { name: 'Knee Pain', icon: Activity },
+  { name: 'Posture Issues', icon: Briefcase },
+  { name: 'Work Injuries', icon: Briefcase },
+];
+
+const services = [
+  {
+    title: 'Physiotherapy',
+    description: 'Comprehensive assessment, treatment, and movement guidance for everyday pain and injuries.',
+    cta: 'Book Now',
+  },
+  {
+    title: 'Sports Injury Rehab',
+    description: 'Targeted sports injury physio plans to restore strength, confidence, and performance.',
+    cta: 'Get Help',
+  },
+  {
+    title: 'Back & Neck Pain',
+    description: 'Practical back pain treatment and neck pain care for desk workers and active adults.',
+    cta: 'See Treatment',
+  },
+  {
+    title: 'Post-Surgery Rehab',
+    description: 'Structured post-operative rehab focused on mobility, control, and long-term outcomes.',
+    cta: 'Get Help',
+  },
+  {
+    title: 'Dry Needling',
+    description: 'Skilled dry needling to reduce muscular tension and support faster movement recovery.',
+    cta: 'Book Now',
+  },
+  {
+    title: 'Exercise Prescription',
+    description: 'Personalised exercise plans to support recovery, prevent recurrence, and build resilience.',
+    cta: 'See Treatment',
+  },
+];
+
+const faqItems = [
+  {
+    question: 'Do I need a referral to see a physio?',
+    answer:
+      'No referral is required for private physiotherapy appointments. You can book directly with Surfers Physio.',
+  },
+  {
+    question: 'Do you treat sports and surf injuries?',
+    answer:
+      'Yes. We regularly help with sports injury physio and surf injury rehab for active Gold Coast locals.',
+  },
+  {
+    question: 'Can I claim with private health?',
+    answer:
+      'Yes. Private health claiming is available for eligible policies. Bring your card and we can guide you through it.',
+  },
+  {
+    question: 'What should I expect in my first appointment?',
+    answer:
+      'Your first session includes assessment, explanation of likely pain drivers, and a practical treatment plan you can follow.',
+  },
+  {
+    question: 'Do you help with back and neck pain?',
+    answer:
+      'Absolutely. Back pain treatment and neck pain management are common reasons people visit our clinic.',
+  },
+  {
+    question: 'How do I book an appointment?',
+    answer: 'Use the Book Appointment buttons on this page or call the clinic directly to schedule your session.',
+  },
+];
+
+const trustStatements = [
+  'Local clinic feel',
+  'Evidence-based treatment',
+  'Clear communication',
+  'Practical recovery plans',
+];
 
 export function HomePage() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-neutral-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Content */}
-            <div>
-              <div className="inline-flex items-center gap-2 bg-accent/50 text-accent-foreground px-4 py-2 rounded-full mb-6">
-                <MapPin size={16} />
-                <span className="text-sm font-medium">Serving Gold Coast, Brisbane & Sunshine Coast</span>
-              </div>
+    <main id="top" className="overflow-x-hidden bg-[#F8FAFC] pb-24 md:pb-0">
+      <section className="border-b border-[#d9e5f1] bg-[radial-gradient(circle_at_top_left,_rgba(14,165,198,0.12),_transparent_55%),linear-gradient(to_bottom,_#ffffff,_#f8fafc)]">
+        <div className="mx-auto grid w-full max-w-7xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:py-20">
+          <div>
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#c9dbee] bg-white px-4 py-2 text-sm font-semibold text-[#0A2342]">
+              <Waves size={16} />
+              Surfers Paradise physiotherapy for active locals
+            </p>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight mb-6">
-                Fix Pain. Move Better. Get Back to What You Love.
-              </h1>
+            <h1 className="text-balance font-[Manrope] text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-[#0A2342] sm:text-5xl lg:text-[3.45rem]">
+              Move Better. Recover Faster. Stay Active.
+            </h1>
 
-              <p className="text-lg sm:text-xl text-neutral-600 mb-8 leading-relaxed">
-                Expert physiotherapy care for office workers, athletes, and anyone living with pain. Evidence-based treatment that gets results.
-              </p>
+            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#334155]">
+              Trusted physiotherapy in Surfers Paradise for surfers, workers, gym-goers, and active adults.
+              We deliver hands-on care and evidence-based rehab for confident recovery.
+            </p>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <a
-                  href="#book"
-                  className="bg-brand-teal text-white px-8 py-4 rounded-lg hover:bg-brand-teal-dark transition-all font-semibold text-center shadow-lg hover:shadow-xl"
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="/#book"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#0A2342] px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#12345f]"
+              >
+                Book Appointment
+              </a>
+              <a
+                href={`tel:${phoneNumber.replace(/\s/g, '')}`}
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#0EA5C6] bg-white px-8 py-3.5 text-base font-semibold text-[#0EA5C6] transition-colors hover:bg-[#ecfbff]"
+              >
+                Call Now
+              </a>
+            </div>
+
+            <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium text-[#0F172A]">
+              <span className="inline-flex items-center gap-1.5"><BadgeCheck size={15} className="text-[#14B8A6]" />5-Star Local Care</span>
+              <span className="inline-flex items-center gap-1.5"><Clock3 size={15} className="text-[#14B8A6]" />Same Week Appointments</span>
+              <span className="inline-flex items-center gap-1.5"><CheckCircle2 size={15} className="text-[#14B8A6]" />Private Health Accepted</span>
+            </div>
+
+            <p className="mt-4 text-sm font-semibold text-[#0A2342]">★★★★★ Rated by Gold Coast locals</p>
+          </div>
+
+          <div className="mx-auto w-full max-w-md lg:max-w-none">
+            <div className="overflow-hidden rounded-3xl border border-[#d5e4f2] bg-white shadow-[0_24px_55px_rgba(10,35,66,0.14)]">
+              <img
+                src={heroImage}
+                alt="Physiotherapist treating a patient in a modern Surfers Paradise clinic"
+                className="aspect-[3/4] h-full w-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-[Manrope] text-3xl font-bold text-[#0A2342] sm:text-4xl">Why Locals Choose Surfers Physio</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {whyChooseCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <article
+                  key={card.title}
+                  className="rounded-2xl border border-[#d8e6f3] bg-white p-6 shadow-[0_10px_30px_rgba(10,35,66,0.05)]"
                 >
-                  Book Appointment
-                </a>
-                <a
-                  href="tel:1300000000"
-                  className="bg-white border-2 border-brand-teal text-brand-teal px-8 py-4 rounded-lg hover:bg-accent transition-colors font-semibold text-center"
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#e9f8fc] text-[#0EA5C6]">
+                    <Icon size={18} />
+                  </div>
+                  <h3 className="mt-4 font-[Manrope] text-xl font-semibold text-[#0A2342]">{card.title}</h3>
+                  <p className="mt-3 text-[#334155]">{card.description}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section id="conditions" className="bg-white py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-[Manrope] text-3xl font-bold text-[#0A2342] sm:text-4xl">Conditions We Help With</h2>
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {conditions.map((condition) => {
+              const Icon = condition.icon;
+              return (
+                <button
+                  key={condition.name}
+                  type="button"
+                  className="group flex items-center justify-between rounded-xl border border-[#d7e5f1] bg-[#f8fcff] px-4 py-4 text-left transition-all hover:-translate-y-0.5 hover:border-[#a9cbe4] hover:bg-white hover:shadow-[0_12px_22px_rgba(10,35,66,0.06)]"
                 >
-                  Call Now
-                </a>
-              </div>
-
-              {/* Trust Signals */}
-              <div className="grid grid-cols-3 gap-6">
-                <div>
-                  <div className="flex items-center gap-1 mb-1">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} size={16} className="fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-2xl font-bold text-neutral-900">4.9/5</p>
-                  <p className="text-sm text-neutral-600">Google Rating</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-neutral-900">15+</p>
-                  <p className="text-sm text-neutral-600">Years Experience</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-neutral-900">5,000+</p>
-                  <p className="text-sm text-neutral-600">Patients Helped</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Image */}
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1770653927355-2ba81c1522df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                  alt="Physiotherapist treating patient"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Floating Badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-neutral-200 hidden lg:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-brand-teal/10 rounded-full flex items-center justify-center">
-                    <Check className="text-brand-teal" size={24} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900">Evidence-Based</p>
-                    <p className="text-sm text-neutral-600">Treatment Plans</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  <span className="font-semibold text-[#0F172A]">{condition.name}</span>
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#e4f6fb] text-[#0EA5C6] transition-colors group-hover:bg-[#d7f2f8]">
+                    <Icon size={16} />
+                  </span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-              Trusted by Thousands
-            </h2>
-            <p className="text-lg text-neutral-600">
-              See what our patients say about their recovery journey
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+          <div>
+            <h2 className="font-[Manrope] text-3xl font-bold text-[#0A2342] sm:text-4xl">Built for the Gold Coast Lifestyle</h2>
+            <p className="mt-4 text-lg leading-relaxed text-[#334155]">
+              Whether you surf at sunrise, train after work, run the esplanade, work long hours at a desk,
+              or simply want to move without pain, Surfers Physio helps your body keep up.
+            </p>
+            <p className="mt-4 text-[#334155]">
+              As a local Gold Coast physio clinic, we combine clinical reasoning with practical treatment that fits
+              real life.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <TestimonialCard
-              name="Sarah M."
-              condition="Chronic Back Pain"
-              quote="After years of back pain, I'm finally pain-free. The team took time to understand my condition and create a personalized plan. Couldn't recommend them more!"
-              rating={5}
+          <div className="overflow-hidden rounded-2xl border border-[#d7e5f1] bg-white shadow-[0_10px_30px_rgba(10,35,66,0.08)]">
+            <img
+              src="https://images.unsplash.com/photo-1643392405779-83f0f1f6abfa?auto=format&fit=crop&w=1400&q=80"
+              alt="Gold Coast coastline lifestyle in Surfers Paradise"
+              className="aspect-[16/10] w-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
-            <TestimonialCard
-              name="James L."
-              condition="Sports Injury"
-              quote="Tore my ACL playing football. The rehab program got me back on the field stronger than ever. Professional, knowledgeable, and genuinely care about results."
-              rating={5}
-            />
-            <TestimonialCard
-              name="Michelle K."
-              condition="Neck Pain"
-              quote="Working from home destroyed my neck and shoulders. After just 6 sessions, I'm sleeping better and working pain-free. Life-changing experience."
-              rating={5}
-            />
-          </div>
-
-          {/* Health Fund Logos */}
-          <div className="mt-16 pt-12 border-t border-neutral-200">
-            <p className="text-center text-sm text-neutral-600 mb-8">We accept all major health funds</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              <div className="bg-neutral-100 px-6 py-3 rounded-lg text-neutral-700 font-medium">Medibank</div>
-              <div className="bg-neutral-100 px-6 py-3 rounded-lg text-neutral-700 font-medium">Bupa</div>
-              <div className="bg-neutral-100 px-6 py-3 rounded-lg text-neutral-700 font-medium">HCF</div>
-              <div className="bg-neutral-100 px-6 py-3 rounded-lg text-neutral-700 font-medium">NIB</div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section id="services" className="py-20 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-              Our Services
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              Comprehensive physiotherapy solutions tailored to your unique needs
+      <section id="services" className="bg-white py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-[Manrope] text-3xl font-bold text-[#0A2342] sm:text-4xl">Our Services</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <article
+                key={service.title}
+                className="rounded-2xl border border-[#d8e6f3] bg-white p-6 shadow-[0_10px_26px_rgba(10,35,66,0.05)]"
+              >
+                <h3 className="font-[Manrope] text-xl font-semibold text-[#0A2342]">{service.title}</h3>
+                <p className="mt-3 text-[#334155]">{service.description}</p>
+                <p className="mt-5 text-sm font-semibold text-[#0EA5C6]">{service.cta}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0A2342] py-16 text-white sm:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-[Manrope] text-3xl font-bold sm:text-4xl">Your Journey to Recovery</h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <article className="rounded-2xl border border-[#2a4d73] bg-[#0f315a] p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#7ddcec]">Step 1</p>
+              <h3 className="mt-3 font-[Manrope] text-2xl font-semibold">Assess</h3>
+              <p className="mt-3 text-[#c8d9ea]">We identify the likely cause of your pain and explain what is happening clearly.</p>
+            </article>
+            <article className="rounded-2xl border border-[#2a4d73] bg-[#0f315a] p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#7ddcec]">Step 2</p>
+              <h3 className="mt-3 font-[Manrope] text-2xl font-semibold">Treat</h3>
+              <p className="mt-3 text-[#c8d9ea]">Hands-on care, movement correction, and practical strategies to reduce symptoms.</p>
+            </article>
+            <article className="rounded-2xl border border-[#2a4d73] bg-[#0f315a] p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#7ddcec]">Step 3</p>
+              <h3 className="mt-3 font-[Manrope] text-2xl font-semibold">Perform</h3>
+              <p className="mt-3 text-[#c8d9ea]">Rehab and prevention planning to help you return stronger and stay active.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-[#d8e6f3] bg-white p-7 shadow-[0_10px_30px_rgba(10,35,66,0.05)] sm:p-10">
+            <h2 className="font-[Manrope] text-3xl font-bold text-[#0A2342] sm:text-4xl">Expert Care You Can Trust</h2>
+            <p className="mt-4 max-w-4xl text-lg leading-relaxed text-[#334155]">
+              Surfers Physio provides professional physiotherapy care for people who want clear answers,
+              practical treatment, and a plan they can follow.
             </p>
-          </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ServiceCard
-              title="Physiotherapy"
-              description="Comprehensive assessment and treatment for musculoskeletal conditions, injury prevention, and performance optimization."
-              icon="🏥"
-            />
-            <ServiceCard
-              title="Sports Injury Rehab"
-              description="Specialized rehabilitation programs to get athletes back to peak performance safely and effectively."
-              icon="⚽"
-            />
-            <ServiceCard
-              title="Back & Neck Pain"
-              description="Expert treatment for chronic and acute spinal conditions using evidence-based manual therapy techniques."
-              icon="🦴"
-            />
-            <ServiceCard
-              title="Post-Surgery Rehab"
-              description="Structured recovery programs to restore function and mobility after surgical procedures."
-              icon="🏥"
-            />
-            <ServiceCard
-              title="Dry Needling"
-              description="Advanced trigger point therapy to release muscle tension, reduce pain, and improve movement patterns."
-              icon="💉"
-            />
-            <ServiceCard
-              title="Exercise Prescription"
-              description="Customized strength and conditioning programs to prevent re-injury and enhance long-term health."
-              icon="💪"
-            />
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to="/services"
-              className="inline-block bg-brand-teal text-white px-8 py-4 rounded-lg hover:bg-brand-teal-dark transition-colors font-semibold shadow-lg"
-            >
-              View All Services
-            </Link>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+              <li className="flex items-start gap-2"><CheckCircle2 size={18} className="mt-0.5 text-[#14B8A6]" />Clear assessment and explanation</li>
+              <li className="flex items-start gap-2"><CheckCircle2 size={18} className="mt-0.5 text-[#14B8A6]" />Hands-on treatment where appropriate</li>
+              <li className="flex items-start gap-2"><CheckCircle2 size={18} className="mt-0.5 text-[#14B8A6]" />Practical rehab exercises</li>
+              <li className="flex items-start gap-2"><CheckCircle2 size={18} className="mt-0.5 text-[#14B8A6]" />Return-to-sport and return-to-work focus</li>
+              <li className="flex items-start gap-2"><CheckCircle2 size={18} className="mt-0.5 text-[#14B8A6]" />Prevention-focused care</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Who We Help */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-              Who We Help
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              Specialized care for every stage of life and activity level
+      <section className="bg-white py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-[#cde2ee] bg-[linear-gradient(145deg,#f6fcff,#edf6fb)] p-8 sm:p-10">
+            <h2 className="font-[Manrope] text-3xl font-bold text-[#0A2342]">Stay Ahead of Pain</h2>
+            <p className="mt-4 text-lg leading-relaxed text-[#334155]">
+              Physiotherapy is not only for injury recovery. Regular mobility check-ins, posture resets,
+              sports maintenance, and recovery tune-ups can help active people reduce flare-ups and keep performing.
             </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <WhoWeHelpCard
-              title="Office Workers"
-              problems={["Chronic neck pain", "Lower back strain", "Poor posture", "Headaches"]}
-              image="https://images.unsplash.com/photo-1764314138160-5f04f4a50dae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-            />
-            <WhoWeHelpCard
-              title="Athletes"
-              problems={["Sports injuries", "Performance issues", "Joint instability", "Recovery needs"]}
-              image="https://images.unsplash.com/photo-1770653927355-2ba81c1522df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-            />
-            <WhoWeHelpCard
-              title="Chronic Pain"
-              problems={["Persistent pain", "Mobility issues", "Reduced quality of life", "Sleep problems"]}
-              image="https://images.unsplash.com/photo-1772122028843-9139d23af4fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-            />
-            <WhoWeHelpCard
-              title="Post-Surgery"
-              problems={["Limited mobility", "Weakness", "Scar tissue", "Recovery plateau"]}
-              image="https://images.unsplash.com/photo-1754941622138-b3c3671f2fa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section id="process" className="py-20 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-              Your Journey to Recovery
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              A simple, proven process to get you moving pain-free
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <ProcessStep
-              step={1}
-              title="Assessment"
-              description="Comprehensive evaluation of your condition, movement patterns, and goals. We take time to understand the root cause, not just symptoms."
-            />
-            <ProcessStep
-              step={2}
-              title="Treatment Plan"
-              description="Evidence-based treatment combining manual therapy, exercise prescription, and education tailored specifically to your needs."
-            />
-            <ProcessStep
-              step={3}
-              title="Recovery & Prevention"
-              description="Ongoing support to achieve your goals and prevent future injuries. You'll leave with tools to stay pain-free long-term."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl">
-                <img
-                  src="https://images.unsplash.com/photo-1764314484083-cbd0de7e512c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800"
-                  alt="Our clinic and team"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-6">
-                Expert Care You Can Trust
-              </h2>
-
-              <p className="text-lg text-neutral-600 mb-6 leading-relaxed">
-                With over 15 years of experience treating thousands of patients across Gold Coast and Brisbane, our team combines advanced clinical expertise with genuine care for your wellbeing.
-              </p>
-
-              <p className="text-lg text-neutral-600 mb-8 leading-relaxed">
-                We stay at the forefront of physiotherapy research and techniques, ensuring you receive the most effective, evidence-based treatment available.
-              </p>
-
-              {/* Credentials */}
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-brand-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="text-brand-teal" size={14} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900">Registered Physiotherapists</p>
-                    <p className="text-neutral-600">AHPRA accredited with ongoing professional development</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-brand-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="text-brand-teal" size={14} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900">Evidence-Based Practice</p>
-                    <p className="text-neutral-600">Treatment protocols backed by latest research</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 rounded-full bg-brand-teal/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="text-brand-teal" size={14} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-neutral-900">Personalized Approach</p>
-                    <p className="text-neutral-600">Every treatment plan is tailored to your unique goals</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Booking CTA */}
-      <section id="book" className="py-20 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Start Your Recovery Today
-          </h2>
-          <p className="text-xl mb-10 opacity-90">
-            Take the first step towards a pain-free life. Book your initial assessment now.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="#"
-              className="bg-white text-brand-teal px-8 py-4 rounded-lg hover:bg-neutral-100 transition-colors font-semibold text-lg shadow-xl inline-block"
+              href="/#book"
+              className="mt-7 inline-flex min-h-11 items-center justify-center rounded-lg bg-[#0A2342] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#12345f]"
             >
-              Book Online
-            </a>
-            <a
-              href="tel:1300000000"
-              className="bg-brand-teal-dark border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-opacity-90 transition-colors font-semibold text-lg inline-block"
-            >
-              Call 1300 000 000
+              Book a Maintenance Session
             </a>
           </div>
+        </div>
+      </section>
 
-          <p className="mt-8 text-sm opacity-80">
-            New patients welcome • No referral required • Same-day appointments available
+      <section className="py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-[Manrope] text-3xl font-bold text-[#0A2342] sm:text-4xl">Trusted by Local Patients</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-center text-[#334155]">
+            No inflated claims. No fake reviews. Just consistent care quality for locals seeking reliable outcomes.
           </p>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {trustStatements.map((item) => (
+              <article key={item} className="rounded-xl border border-[#d9e6f3] bg-white p-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#0EA5C6]">Trust Signal</p>
+                <p className="mt-2 font-semibold text-[#0F172A]">{item}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section id="faq" className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-neutral-900 mb-4">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-lg text-neutral-600">
-              Everything you need to know about your first visit
+      <section id="faq" className="bg-white py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-[Manrope] text-3xl font-bold text-[#0A2342] sm:text-4xl">Frequently Asked Questions</h2>
+          <div className="mt-10 space-y-4">
+            {faqItems.map((item) => (
+              <article key={item.question} className="rounded-xl border border-[#dbe7f3] bg-[#fbfdff] p-5 sm:p-6">
+                <h3 className="font-[Manrope] text-lg font-semibold text-[#0A2342]">{item.question}</h3>
+                <p className="mt-2 text-[#334155]">{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="book" className="pb-16 pt-16 sm:pb-20 sm:pt-20">
+        <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-[#0A2342] p-8 text-center text-white shadow-[0_20px_50px_rgba(10,35,66,0.24)] sm:p-12">
+            <h2 className="font-[Manrope] text-3xl font-bold sm:text-4xl">Ready to Move Pain-Free Again?</h2>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-[#d7e7f7]">
+              Book an appointment with Surfers Physio and take the next step toward better movement,
+              less pain, and stronger recovery.
             </p>
-          </div>
-
-          <div className="space-y-4">
-            <FAQItem
-              question="Do I need a referral to see a physiotherapist?"
-              answer="No referral is required. You can book directly with us. However, if you have a referral from your GP or specialist, please bring it along as it may help with health fund rebates."
-            />
-            <FAQItem
-              question="Will physiotherapy work for my condition?"
-              answer="Physiotherapy is highly effective for a wide range of musculoskeletal conditions including back pain, neck pain, sports injuries, post-surgery rehabilitation, and chronic pain. During your initial assessment, we'll evaluate your condition and discuss realistic outcomes."
-            />
-            <FAQItem
-              question="What are your fees? Do you accept health insurance?"
-              answer="Initial consultations are $120, follow-up sessions are $95. We accept all major health funds and provide HICAPS on-site claiming for immediate rebates. We also offer payment plans for those without insurance."
-            />
-            <FAQItem
-              question="What should I expect in my first session?"
-              answer="Your first session includes a comprehensive assessment (45-60 minutes) covering your medical history, current symptoms, movement evaluation, and treatment goals. We'll start treatment on day one and provide you with a clear plan moving forward."
-            />
-            <FAQItem
-              question="How many sessions will I need?"
-              answer="This varies by individual and condition. Many patients see improvement within 3-6 sessions. We'll give you an honest assessment after your first visit and update you throughout treatment. Our goal is to get you better as efficiently as possible."
-            />
-            <FAQItem
-              question="What should I wear to my appointment?"
-              answer="Wear comfortable, loose-fitting clothing that allows easy access to the area being treated. Athletic wear or shorts and a t-shirt work well. We have private treatment rooms if you need to change."
-            />
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <a
+                href="/#book"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-8 py-3.5 text-base font-semibold text-[#0A2342] transition-colors hover:bg-[#edf4fb]"
+              >
+                Book Appointment
+              </a>
+              <a
+                href={`tel:${phoneNumber.replace(/\s/g, '')}`}
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[#8cb6da] px-8 py-3.5 text-base font-semibold text-white transition-colors hover:bg-[#13385f]"
+              >
+                Call Now
+              </a>
+            </div>
           </div>
         </div>
       </section>
-    </>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#c9dceb] bg-white/98 p-3 shadow-[0_-8px_22px_rgba(10,35,66,0.15)] backdrop-blur-sm md:hidden">
+        <div className="mx-auto grid w-full max-w-md grid-cols-2 gap-2">
+          <a
+            href={`tel:${phoneNumber.replace(/\s/g, '')}`}
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#0EA5C6] bg-[#ecfbff] px-4 text-sm font-semibold text-[#0EA5C6]"
+          >
+            <Phone size={16} />
+            Call
+          </a>
+          <a
+            href="/#book"
+            className="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#0A2342] px-4 text-sm font-semibold text-white"
+          >
+            Book
+          </a>
+        </div>
+      </div>
+    </main>
   );
 }
