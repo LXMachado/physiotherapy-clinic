@@ -12,6 +12,7 @@ import {
   Waves,
 } from 'lucide-react';
 import heroImage from '@/assets/surfers-hero.webp';
+import lifestyleImage from '@/assets/gold-coast-coastal-lifestyle-surfers-paradise.webp';
 
 const phoneNumber = '1300 000 000';
 
@@ -240,8 +241,8 @@ export function HomePage() {
 
           <div className="overflow-hidden rounded-2xl border border-[#d7e5f1] bg-white shadow-[0_10px_30px_rgba(10,35,66,0.08)]">
             <img
-              src="https://images.unsplash.com/photo-1643392405779-83f0f1f6abfa?auto=format&fit=crop&w=1400&q=80"
-              alt="Gold Coast coastline lifestyle in Surfers Paradise"
+              src={lifestyleImage}
+              alt="Surfers Paradise esplanade with runners, surfers, and Gold Coast beachfront skyline"
               className="aspect-[16/10] w-full object-cover"
               loading="lazy"
               decoding="async"
